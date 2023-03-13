@@ -13,22 +13,43 @@ struct ContentView: View {
     var result: Double {
         switch selection {
         case "Temperature":
-            return 0.0
+            var unitType: UnitTemperature
+            switch temperatureValueSelection {
+            case "Celsius":
+                unitType = .celsius
+            case "Fahrenheit":
+                unitType = .fahrenheit
+            case "Kelvin":
+                unitType = .kelvin
+            default:
+                unitType = .celsius
+            }
+            let firstValue = Measurement(value: value, unit: unitType)
+            switch temperatureResultSelection {
+            case "Celsius":
+                return firstValue.converted(to: UnitTemperature.celsius).value
+            case "Fahrenheit":
+                return firstValue.converted(to: UnitTemperature.fahrenheit).value
+            case "Kelvin":
+                return firstValue.converted(to: UnitTemperature.kelvin).value
+            default:
+                return firstValue.converted(to: UnitTemperature.celsius).value
+            }
         case "Length":
             var unitType: UnitLength
             switch distanceValueSelection {
             case "Meters":
-                unitType = UnitLength.meters
+                unitType = .meters
             case "Kilometers":
-                unitType = UnitLength.kilometers
+                unitType = .kilometers
             case "Feet":
-                unitType = UnitLength.feet
+                unitType = .feet
             case "Yards":
-                unitType = UnitLength.yards
+                unitType = .yards
             case "Miles":
-                unitType = UnitLength.miles
+                unitType = .miles
             default:
-                unitType = UnitLength.meters
+                unitType = .meters
             }
             let firstValue = Measurement(value: value, unit: unitType)
             switch distanceResultSelection {
@@ -46,6 +67,7 @@ struct ContentView: View {
                 return firstValue.converted(to: UnitLength.meters).value
             }
         case "Time":
+            let firstValue = Measurement(value: value, unit: UnitDuration.seconds)
             return 0.0
         case "Volume":
             return 0.0
@@ -61,6 +83,10 @@ struct ContentView: View {
     let distanceUnitType = ["Meters", "Kilometers", "Feet", "Yards", "Miles"]
     @State var distanceValueSelection = "Meters"
     @State var distanceResultSelection = "Meters"
+    
+    let temperatureUnitType = ["Celsius", "Fahrenheit", "Kelvin"]
+    @State var temperatureValueSelection = "Celsius"
+    @State var temperatureResultSelection = "Celsius"
     
     var body: some View {
         NavigationView {
@@ -82,7 +108,11 @@ struct ContentView: View {
                             .focused($amountIsFocused)
                         switch selection {
                         case "Temperature":
-                            Text(distanceValueSelection)
+                            Picker("", selection: $temperatureValueSelection) {
+                                ForEach(temperatureUnitType, id: \.self) {
+                                    Text($0)
+                                }
+                            }.pickerStyle(.navigationLink)
                         case "Length":
                             Picker("", selection: $distanceValueSelection) {
                                 ForEach(distanceUnitType, id: \.self) {
@@ -106,7 +136,11 @@ struct ContentView: View {
                         Text(String(format: "%.2f", result))
                         switch selection {
                         case "Temperature":
-                            Text(distanceResultSelection)
+                            Picker("", selection: $temperatureResultSelection) {
+                                ForEach(temperatureUnitType, id: \.self) {
+                                    Text($0)
+                                }
+                            }.pickerStyle(.navigationLink)
                         case "Length":
                             Picker("", selection: $distanceResultSelection) {
                                 ForEach(distanceUnitType, id: \.self) {
