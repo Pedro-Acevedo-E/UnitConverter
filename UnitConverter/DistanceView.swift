@@ -45,7 +45,6 @@ struct DistanceView: View {
     @State var distanceValueSelection = "Meters"
     @State var distanceResultSelection = "Meters"
     
-    
     var body: some View {
         Section {
             HStack {
