@@ -67,8 +67,31 @@ struct ContentView: View {
                 return firstValue.converted(to: UnitLength.meters).value
             }
         case "Time":
-            let firstValue = Measurement(value: value, unit: UnitDuration.seconds)
-            return 0.0
+            let firstValue: Measurement<UnitDuration>
+            switch durationValueSelection {
+            case "Seconds":
+                firstValue = Measurement(value: value, unit: .seconds)
+            case "Minutes":
+                firstValue = Measurement(value: value, unit: .minutes)
+            case "Hours":
+                firstValue = Measurement(value: value, unit: .hours)
+            case "Days":
+                firstValue = Measurement(value: value * 24, unit: .hours)
+            default:
+                firstValue = Measurement(value: value, unit: .seconds)
+            }
+            switch durationResultSelection {
+            case "Seconds":
+                return firstValue.converted(to: UnitDuration.seconds).value
+            case "Minutes":
+                return firstValue.converted(to: UnitDuration.minutes).value
+            case "Hours":
+                return firstValue.converted(to: UnitDuration.hours).value
+            case "Days":
+                return firstValue.converted(to: UnitDuration.hours).value / 24
+            default:
+                return firstValue.converted(to: UnitDuration.seconds).value
+            }
         case "Volume":
             return 0.0
         default:
@@ -87,6 +110,10 @@ struct ContentView: View {
     let temperatureUnitType = ["Celsius", "Fahrenheit", "Kelvin"]
     @State var temperatureValueSelection = "Celsius"
     @State var temperatureResultSelection = "Celsius"
+    
+    let durationUnitType = ["Seconds", "Minutes", "Hours", "Days"]
+    @State var durationValueSelection = "Minutes"
+    @State var durationResultSelection = "Minutes"
     
     var body: some View {
         NavigationView {
@@ -120,7 +147,11 @@ struct ContentView: View {
                                 }
                             }.pickerStyle(.navigationLink)
                         case "Time":
-                            Text(distanceValueSelection)
+                            Picker("", selection: $durationValueSelection) {
+                                ForEach(durationUnitType, id: \.self) {
+                                    Text($0)
+                                }
+                            }.pickerStyle(.navigationLink)
                         case "Volume":
                             Text(distanceValueSelection)
                         default:
@@ -148,7 +179,11 @@ struct ContentView: View {
                                 }
                             }.pickerStyle(.navigationLink)
                         case "Time":
-                            Text(distanceResultSelection)
+                            Picker("", selection: $durationResultSelection) {
+                                ForEach(durationUnitType, id: \.self) {
+                                    Text($0)
+                                }
+                            }.pickerStyle(.navigationLink)
                         case "Volume":
                             Text(distanceResultSelection)
                         default:
