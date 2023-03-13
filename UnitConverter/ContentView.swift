@@ -99,7 +99,6 @@ struct ContentView: View {
         }
     }
     
-    @FocusState private var amountIsFocused: Bool
     let selectedUnitType = ["Temperature", "Length", "Time", "Volume"]
     @State var selection = "Length"
     
@@ -128,81 +127,21 @@ struct ContentView: View {
                     Text("Select type of units to convert")
                 }
                 
-                Section {
-                    HStack {
-                        TextField("Value", value: $value, format: .number)
-                            .keyboardType(.decimalPad)
-                            .focused($amountIsFocused)
-                        switch selection {
-                        case "Temperature":
-                            Picker("", selection: $temperatureValueSelection) {
-                                ForEach(temperatureUnitType, id: \.self) {
-                                    Text($0)
-                                }
-                            }.pickerStyle(.navigationLink)
-                        case "Length":
-                            Picker("", selection: $distanceValueSelection) {
-                                ForEach(distanceUnitType, id: \.self) {
-                                    Text($0)
-                                }
-                            }.pickerStyle(.navigationLink)
-                        case "Time":
-                            Picker("", selection: $durationValueSelection) {
-                                ForEach(durationUnitType, id: \.self) {
-                                    Text($0)
-                                }
-                            }.pickerStyle(.navigationLink)
-                        case "Volume":
-                            Text(distanceValueSelection)
-                        default:
-                            Text(distanceValueSelection)
-                        }
-                    }
-                } header: {
-                    Text("Value")
+                switch selection {
+                case "Temperature":
+                    Text("temperature")
+                case "Length":
+                    DistanceView(value: $value)
+                case "Time":
+                    Text("time")
+                case "Volume":
+                    Text("valume")
+                default:
+                    Text("error")
                 }
                 
-                Section {
-                    HStack {
-                        Text(String(format: "%.2f", result))
-                        switch selection {
-                        case "Temperature":
-                            Picker("", selection: $temperatureResultSelection) {
-                                ForEach(temperatureUnitType, id: \.self) {
-                                    Text($0)
-                                }
-                            }.pickerStyle(.navigationLink)
-                        case "Length":
-                            Picker("", selection: $distanceResultSelection) {
-                                ForEach(distanceUnitType, id: \.self) {
-                                    Text($0)
-                                }
-                            }.pickerStyle(.navigationLink)
-                        case "Time":
-                            Picker("", selection: $durationResultSelection) {
-                                ForEach(durationUnitType, id: \.self) {
-                                    Text($0)
-                                }
-                            }.pickerStyle(.navigationLink)
-                        case "Volume":
-                            Text(distanceResultSelection)
-                        default:
-                            Text(distanceResultSelection)
-                        }
-                    }
-                } header: {
-                    Text("Result")
-                }
             }
             .navigationTitle("Unit Converter")
-            .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
-                    Spacer()
-                    Button("Done") {
-                        amountIsFocused = false
-                    }
-                }
-            }
         }
     }
 }

@@ -11,6 +11,8 @@
 		D57F9C0329BFABFA0004F904 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57F9C0229BFABFA0004F904 /* ContentView.swift */; };
 		D57F9C0529BFABFA0004F904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D57F9C0429BFABFA0004F904 /* Assets.xcassets */; };
 		D57F9C0829BFABFA0004F904 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D57F9C0729BFABFA0004F904 /* Preview Assets.xcassets */; };
+		D57F9C1029BFD11B0004F904 /* DistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57F9C0F29BFD11B0004F904 /* DistanceView.swift */; };
+		D57F9C1229BFD2800004F904 /* ValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57F9C1129BFD2800004F904 /* ValueView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		D57F9C0429BFABFA0004F904 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D57F9C0729BFABFA0004F904 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D57F9C0E29BFAC870004F904 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D57F9C0F29BFD11B0004F904 /* DistanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceView.swift; sourceTree = "<group>"; };
+		D57F9C1129BFD2800004F904 /* ValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				D57F9C0029BFABFA0004F904 /* UnitConverterApp.swift */,
+				D57F9C1129BFD2800004F904 /* ValueView.swift */,
+				D57F9C0F29BFD11B0004F904 /* DistanceView.swift */,
 				D57F9C0229BFABFA0004F904 /* ContentView.swift */,
 				D57F9C0429BFABFA0004F904 /* Assets.xcassets */,
 				D57F9C0629BFABFA0004F904 /* Preview Content */,
@@ -140,6 +146,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D57F9C0329BFABFA0004F904 /* ContentView.swift in Sources */,
+				D57F9C1029BFD11B0004F904 /* DistanceView.swift in Sources */,
+				D57F9C1229BFD2800004F904 /* ValueView.swift in Sources */,
 				D57F9C0129BFABFA0004F904 /* UnitConverterApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
