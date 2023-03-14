@@ -54,7 +54,7 @@ struct TemperatureView: View {
         
         Section {
             HStack {
-                Text(String(format: "%.2f", result))
+                Text(String(result.formatted()))
                 Picker("", selection: $temperatureResultSelection) {
                     ForEach(temperatureUnitType, id: \.self) {
                         Text($0)

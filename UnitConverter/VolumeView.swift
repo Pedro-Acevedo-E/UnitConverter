@@ -60,7 +60,7 @@ struct VolumeView: View {
         
         Section {
             HStack {
-                Text(String(format: "%.2f", result))
+                Text(String(result.formatted()))
                 Picker("", selection: $volumeResultSelection) {
                     ForEach(volumeUnitType, id: \.self) {
                         Text($0)

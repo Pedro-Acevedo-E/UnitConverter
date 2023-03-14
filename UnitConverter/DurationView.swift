@@ -56,7 +56,7 @@ struct DurationView: View {
         
         Section {
             HStack {
-                Text(String(format: "%.2f", result))
+                Text(String(result.formatted()))
                 Picker("", selection: $durationResultSelection) {
                     ForEach(durationUnitType, id: \.self) {
                         Text($0)
