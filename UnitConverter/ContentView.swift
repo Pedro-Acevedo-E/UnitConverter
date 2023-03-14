@@ -33,7 +33,7 @@ struct ContentView: View {
                 case "Time":
                     DurationView(value: $value)
                 case "Volume":
-                    Text("volume")
+                    VolumeView(value: $value)
                 default:
                     Text("error")
                 }

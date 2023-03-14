@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D56A033229C0ECD800113517 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56A033129C0ECD800113517 /* VolumeView.swift */; };
 		D57F9C0129BFABFA0004F904 /* UnitConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57F9C0029BFABFA0004F904 /* UnitConverterApp.swift */; };
 		D57F9C0329BFABFA0004F904 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57F9C0229BFABFA0004F904 /* ContentView.swift */; };
 		D57F9C0529BFABFA0004F904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D57F9C0429BFABFA0004F904 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D56A033129C0ECD800113517 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 		D57F9BFD29BFABFA0004F904 /* UnitConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D57F9C0029BFABFA0004F904 /* UnitConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverterApp.swift; sourceTree = "<group>"; };
 		D57F9C0229BFABFA0004F904 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				D57F9C0F29BFD11B0004F904 /* DistanceView.swift */,
 				D57F9C1329BFD5130004F904 /* TemperatureView.swift */,
 				D57F9C1529BFD6020004F904 /* DurationView.swift */,
+				D56A033129C0ECD800113517 /* VolumeView.swift */,
 				D57F9C0229BFABFA0004F904 /* ContentView.swift */,
 				D57F9C0429BFABFA0004F904 /* Assets.xcassets */,
 				D57F9C0629BFABFA0004F904 /* Preview Content */,
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D56A033229C0ECD800113517 /* VolumeView.swift in Sources */,
 				D57F9C1429BFD5130004F904 /* TemperatureView.swift in Sources */,
 				D57F9C0329BFABFA0004F904 /* ContentView.swift in Sources */,
 				D57F9C1029BFD11B0004F904 /* DistanceView.swift in Sources */,
